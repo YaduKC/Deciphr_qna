@@ -1,0 +1,16 @@
+.highlight {
+    border-radius: 0.0rem;
+    color: rgb(255, 255, 255);
+    padding: 0.2rem;
+    margin-bottom: 1rem;
+  }
+  .bold {
+    padding-left: 1rem;
+    font-weight: 700;
+  }
+  .blue {
+    background-color: rgb(212, 86, 86);
+  }
+  .red {
+    background-color: lightblue;
+  }
