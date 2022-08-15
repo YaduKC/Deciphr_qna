@@ -14,8 +14,8 @@ st.title('Deciphr Transcript Curation and QnA Demo')
 FILENAME = "INT-072622-112855 _ Test Audio File.json"
 AUDIO_URL = "https://storage.googleapis.com/tektorch_podcast_audio/INT-072622-112855_Test_Audio_File.wav?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=hyfen8%40appspot.gserviceaccount.com%2F20220812%2Fauto%2Fstorage%2Fgoog4_request&X-Goog-Date=20220812T132117Z&X-Goog-Expires=604800&X-Goog-SignedHeaders=host&X-Goog-Signature=88beb7baf258a07841c5f943cc20c49f88a02ca3615e4f94ebfc1d2261abd3505d3e93008981b4bbe2c5e69efca504e6c585a6f4337aeeb5e36f37381be7612708d91e3987cba6395b15d3407847f464655cb6bab9581bec7551050971b612bc41b67618e945506e033c3fa684b3ffcf6121149edf52e7e4691d2e28a4fd4e26898fb5daca3a99efb50a86f182642cf61b80b2643564d813547014f93f6ef714906b595e028d3c4fa1b35c1001b79e871e8eef8166b36e3c6462c22322dc6878cdbd9c83726d416ad75e3fd9c84d42f496071b27e79422a745ad9f90ec2765c3429f476525cea41ee4293edb911280ea30cfe5b39c6eb80ef8a7ca2e853385ca"
 RAW_INFO = """INFO: Expand to show full transcript."""
-CONF_INFO = """INFO: Expand to show highlighed transcript data.\n
-Highlighted text has a confidence value less that 0.5.\n
+CONF_INFO = """INFO: Expand to show highlighted transcript data.\n
+Highlighted text has low a confidence value and may need manual correction.\n
 Press Play to start playing audio from the timestamp displayed."""
 
 THICK_LINE = '<hr style="height:5px;background-color: #ffffff"/>'
@@ -196,12 +196,15 @@ if __name__ == "__main__":
             st.write("---")
     st.markdown(THICK_LINE, unsafe_allow_html=True)
     st.header("Deciphr QnA")
+    st.info("Ask questions about the transcript here.")
     st.text_input("Enter your question here.", key="qna_input")
     st.button("Submit", key="qna_submit", on_click=submit_qna)
     st.write('---')
     if st.session_state['answer']:
+        st.subheader('Answer')
         st.success(st.session_state['answer'])
-        st.write('---')
+        st.markdown(THICK_LINE, unsafe_allow_html=True)
+
 
     
 
